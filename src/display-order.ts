@@ -5,16 +5,13 @@ import { typeOf }              from '@itrocks/class-type'
 import { representativeOf }    from '@itrocks/class-view'
 import { decorateCallback }    from '@itrocks/decorator/class'
 import { decoratorOfCallback } from '@itrocks/decorator/class'
-import { CollectionType }      from '@itrocks/property-type'
 import { ReflectClass }        from '@itrocks/reflect'
 
 const DISPLAY_ORDER = Symbol('displayOrder')
 
 export function defaultDisplayOrderProperties<T extends object>(target: Type<T>)
 {
-	const properties = Array.from(new ReflectClass<T>(target).properties)
-		.filter(property => !(property.type.lead instanceof CollectionType))
-		.map(property => property.name)
+	const properties     = Array.from(new ReflectClass<T>(target).properties).map(property => property.name)
 	const representative = representativeOf(target)
 	return representative.concat(properties.filter(property => !representative.includes(property)))
 }

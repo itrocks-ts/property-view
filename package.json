@@ -5,7 +5,9 @@
 	},
 	"dependencies": {
 		"@itrocks/class-type": "latest",
+		"@itrocks/class-view": "latest",
 		"@itrocks/decorator": "latest",
+		"@itrocks/reflect": "latest",
 		"@itrocks/rename": "latest"
 	},
 	"description": "Decorators for user-friendly identification and ordering of domain properties",
@@ -44,5 +46,5 @@
 		"build:esm": "tsc -p tsconfig.esm.json && node esm/esm"
 	},
 	"types": "./esm/property-view.d.ts",
-	"version": "0.0.5"
+	"version": "0.0.6"
 }
