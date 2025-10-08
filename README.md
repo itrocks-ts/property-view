@@ -6,4 +6,4 @@
 
 # property-view
 
-Decorators for user-friendly identification of domain properties.
+Decorators for user-friendly identification and ordering of domain properties.

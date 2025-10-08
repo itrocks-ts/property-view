@@ -8,7 +8,7 @@
 		"@itrocks/decorator": "latest",
 		"@itrocks/rename": "latest"
 	},
-	"description": "Decorators for user-friendly identification of domain properties",
+	"description": "Decorators for user-friendly identification and ordering of domain properties",
 	"devDependencies": {
 		"@types/node": "^22.10",
 		"typescript": "~5.8"
@@ -44,5 +44,5 @@
 		"build:esm": "tsc -p tsconfig.esm.json && node esm/esm"
 	},
 	"types": "./esm/property-view.d.ts",
-	"version": "0.0.4"
+	"version": "0.0.5"
 }
