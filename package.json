@@ -12,8 +12,8 @@
 	},
 	"description": "Decorators for user-friendly identification and ordering of domain properties",
 	"devDependencies": {
-		"@types/node": "^22.10",
-		"typescript": "~5.8"
+		"@types/node": "^24.10",
+		"typescript": "~5.9"
 	},
 	"engines": {
 		"node": ">=18"
@@ -46,5 +46,5 @@
 		"build:esm": "tsc -p tsconfig.esm.json && node esm/esm"
 	},
 	"types": "./esm/property-view.d.ts",
-	"version": "0.0.7"
+	"version": "0.0.8"
 }
