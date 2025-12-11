@@ -32,7 +32,15 @@
 	"homepage": "https://it.rocks",
 	"keywords": [
 		"backend",
-		"it.rocks"
+		"decorator",
+		"display",
+		"it.rocks",
+		"label",
+		"ordering",
+		"properties",
+		"UI",
+		"UX",
+		"view"
 	],
 	"license": "ISC",
 	"name": "@itrocks/property-view",
@@ -46,5 +54,5 @@
 		"build:esm": "tsc -p tsconfig.esm.json && node esm/esm"
 	},
 	"types": "./esm/property-view.d.ts",
-	"version": "0.0.8"
+	"version": "0.0.9"
 }
