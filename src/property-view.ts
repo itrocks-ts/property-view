@@ -1,6 +1,4 @@
 
-export { Display, displayOf } from './display'
-
+export { Display, displayOf }           from './display'
 export { DisplayOrder, displayOrderOf } from './display-order'
-
-export { initOrderedProperties } from './ordered-properties'
+export { initOrderedProperties }        from './ordered-properties'

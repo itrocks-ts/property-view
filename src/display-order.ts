@@ -1,4 +1,3 @@
-import { KeyOf }               from '@itrocks/class-type'
 import { ObjectOrType }        from '@itrocks/class-type'
 import { Type }                from '@itrocks/class-type'
 import { typeOf }              from '@itrocks/class-type'
@@ -11,12 +10,12 @@ const DISPLAY_ORDER = Symbol('displayOrder')
 
 export function defaultDisplayOrderProperties<T extends object>(target: Type<T>)
 {
-	const properties     = Array.from(new ReflectClass<T>(target).properties).map(property => property.name)
+	const propertyNames  = new ReflectClass<T>(target).propertyNames
 	const representative = representativeOf(target)
-	return representative.concat(properties.filter(property => !representative.includes(property)))
+	return [...new Set([...representative, ...propertyNames])]
 }
 
-export function DisplayOrder<T extends object>(...properties: KeyOf<T>[])
+export function DisplayOrder<T extends object>(...properties: (keyof T)[])
 {
 	return decorateCallback<T>(
 		DISPLAY_ORDER,
@@ -26,7 +25,7 @@ export function DisplayOrder<T extends object>(...properties: KeyOf<T>[])
 
 export function displayOrderOf<T extends object>(target: ObjectOrType<T>)
 {
-	return decoratorOfCallback<T, KeyOf<T>[]>(
+	return decoratorOfCallback<T, (keyof T)[]>(
 		target,
 		DISPLAY_ORDER,
 		target => defaultDisplayOrderProperties(typeOf(target))

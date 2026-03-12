@@ -1,15 +1,16 @@
-import { ReflectClass }   from '@itrocks/reflect'
-import { displayOrderOf } from './display-order'
+import { ReflectClass }    from '@itrocks/reflect'
+import { ReflectProperty } from '@itrocks/reflect'
+import { displayOrderOf }  from './display-order'
 
 class OrderedPropertiesReflectClass<T extends object> extends ReflectClass<T>
 {
 
 	orderedProperties()
 	{
-		const properties   = this.properties
-		const displayOrder = displayOrderOf(this.type)
-		return displayOrder.map(propertyName => properties[propertyName])
-			.concat(Object.values(properties).filter(property => !displayOrder.includes(property.name)))
+		const displayOrder  = displayOrderOf(this.type)
+		const propertyNames = this.propertyNames
+		return [...new Set([...displayOrder, ...propertyNames])]
+			.map(propertyName => new ReflectProperty(this, propertyName))
 	}
 
 }
