@@ -10,7 +10,7 @@ const DISPLAY_ORDER = Symbol('displayOrder')
 
 export function defaultDisplayOrderProperties<T extends object>(target: Type<T>)
 {
-	const propertyNames  = new ReflectClass<T>(target).propertyNames
+	const propertyNames  = new ReflectClass(target).propertyNames
 	const representative = representativeOf(target)
 	return [...new Set([...representative, ...propertyNames])]
 }
